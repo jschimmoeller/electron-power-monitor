@@ -17,11 +17,14 @@ const shouldQuit = app.makeSingleInstance((commandLine, workingDirectory) => {
 
 if (shouldQuit) {
   app.quit();
+  // add this return so you dont get the console log lines 
   //return; // this is the magic line
 }
 
+console.log('what next');
+
 app.on('ready', function(){
-  console.log('rrrrr')
+  console.log('it is ready')
   electron.powerMonitor.on('suspend', () => {
     console.log('The system is going to sleep')
   })
